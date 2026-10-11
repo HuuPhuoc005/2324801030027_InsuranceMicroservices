@@ -1,0 +1,80 @@
+
+> asclab-micronaut-poc@0.1.0 build
+> vue-cli-service build
+
+
+Browserslist: caniuse-lite is outdated. Please run next command `yarn upgrade caniuse-lite browserslist`
+Browserslist: caniuse-lite is outdated. Please run next command `yarn upgrade caniuse-lite browserslist`
+Browserslist: caniuse-lite is outdated. Please run next command `yarn upgrade caniuse-lite browserslist`
+Browserslist: caniuse-lite is outdated. Please run next command `yarn upgrade caniuse-lite browserslist`
+ WARNING  Compiled with 2 warnings3:45:44 PM
+
+ warning  
+
+asset size limit: The following asset(s) exceed the recommended size limit (244 KiB).
+This can impact web performance.
+Assets: 
+  img/fontawesome-webfont.912ec66d.svg (434 KiB)
+  js/chunk-vendors.bebff963.js (311 KiB)
+  js/view-DashboardView-vue.e1898ed7.js (471 KiB)
+
+ warning  
+
+entrypoint size limit: The following entrypoint(s) combined asset size exceeds the recommended limit (244 KiB). This can impact web performance.
+Entrypoints:
+  app (511 KiB)
+      css/chunk-vendors.66c9f30d.css
+      js/chunk-vendors.bebff963.js
+      css/app.4a5d3f49.css
+      js/app.0bf6852a.js
+
+
+  File                                      Size             Gzipped
+
+  dist\js\view-DashboardView-vue.e1898ed    471.28 kb        145.14 kb
+  7.js
+  dist\js\chunk-vendors.bebff963.js         310.88 kb        93.00 kb
+  dist\js\view-ChatView-vue.87a9108e.js     70.19 kb         18.53 kb
+  dist\js\view-DashboardView-vue~view-Po    16.59 kb         6.01 kb
+  liciesView-vue~view-PolicyCreateView-v
+  ue~view-PolicyDetailsView-vue~vi~9ae27
+  a8c.4ca035f0.js
+  dist\js\view-PolicyDetailsView-vue.028    15.80 kb         6.24 kb
+  b5c41.js
+  dist\js\app.0bf6852a.js                   10.48 kb         3.27 kb
+  dist\js\view-ProductDetailsView-vue.1f    5.97 kb          1.81 kb
+  af1113.js
+  dist\js\view-PolicyCreateView-vue.86f6    3.95 kb          1.30 kb
+  8233.js
+  dist\js\view-PoliciesView-vue.d38a4d22    3.17 kb          1.36 kb
+  .js
+  dist\js\view-AccountView-vue.082ebe98.    2.66 kb          1.07 kb
+  js
+  dist\js\view-ProductsView-vue.824df9a7    2.56 kb          1.02 kb
+  .js
+  dist\js\view-ChatbotView-vue.627e0f09.    1.11 kb          0.60 kb
+  js
+  dist\css\chunk-vendors.66c9f30d.css       188.05 kb        29.18 kb
+  dist\css\app.4a5d3f49.css                 1.29 kb          0.62 kb
+  dist\css\view-DashboardView-vue.f2aa86    0.98 kb          0.33 kb
+  6d.css
+  dist\css\view-ChatView-vue.429a8b00.cs    0.19 kb          0.16 kb
+  s
+  dist\css\view-PoliciesView-vue.ee5706a    0.17 kb          0.13 kb
+  9.css
+  dist\css\view-PolicyCreateView-vue.228    0.09 kb          0.09 kb
+  168dd.css
+  dist\css\view-ProductDetailsView-vue.1    0.05 kb          0.06 kb
+  2314e7c.css
+  dist\css\view-ProductsView-vue.6e16f3f    0.05 kb          0.07 kb
+  e.css
+  dist\css\view-ChatbotView-vue.eebcfba8    0.00 kb          0.02 kb
+  .css
+  dist\css\view-PolicyDetailsView-vue.bf    0.00 kb          0.02 kb
+  b09f4c.css
+
+  Images and other types of assets omitted.
+
+ DONE  Build complete. The dist directory is ready to be deployed.
+ INFO  Check out deployment instructions at https://cli.vuejs.org/guide/deployment.html
+      

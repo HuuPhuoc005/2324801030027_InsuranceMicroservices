@@ -1,0 +1,35 @@
+<Solution>
+  <Folder Name="/eureka-server/"><File Path="eureka-server/build.gradle" /></Folder>
+  <Folder Name="/postgres/"><File Path="postgres/createdatabases.sql" /></Folder>
+  <Folder Name="/scripts/"><File Path="scripts/infra.yml" /></Folder>
+  <Folder Name="/Web/"><File Path="Web/package.json" /></Folder>
+  <Project Path="AgentPortalApiGateway/AgentPortalApiGateway.csproj" />
+  <Project Path="BlazorWasmClient/BlazorWasmClient.csproj" />
+  <Project Path="AuthService/AuthService.csproj" />
+  <Project Path="AuthService.Api/AuthService.Api.csproj" />
+  <Project Path="AuthService.Test/AuthService.Test.csproj" />
+  <Project Path="ChatService/ChatService.csproj" />
+  <Project Path="ChatService.Api/ChatService.Api.csproj" />
+  <Project Path="ChatService.Test/ChatService.Test.csproj" />
+  <Project Path="PricingService/PricingService.csproj" />
+  <Project Path="PricingService.Api/PricingService.Api.csproj" />
+  <Project Path="PricingService.Test/PricingService.Test.csproj" />
+  <Project Path="PolicyService/PolicyService.csproj" />
+  <Project Path="PolicyService.Api/PolicyService.Api.csproj" />
+  <Project Path="PolicyService.Test/PolicyService.Test.csproj" />
+  <Project Path="PolicySearchService/PolicySearchService.csproj" />
+  <Project Path="PolicySearchService.Api/PolicySearchService.Api.csproj" />
+  <Project Path="PolicySearchService.Test/PolicySearchService.Test.csproj" />
+  <Project Path="PaymentService/PaymentService.csproj" />
+  <Project Path="PaymentService.Api/PaymentService.Api.csproj" />
+  <Project Path="PaymentService.Test/PaymentService.Test.csproj" />
+  <Project Path="ProductService/ProductService.csproj" />
+  <Project Path="ProductService.Api/ProductService.Api.csproj" />
+  <Project Path="ProductService.Test/ProductService.Test.csproj" />
+  <Project Path="DocumentService/DocumentService.csproj" />
+  <Project Path="DocumentService.Api/DocumentService.Api.csproj" />
+  <Project Path="DocumentService.Test/DocumentService.Test.csproj" />
+  <Project Path="DashboardService/DashboardService.csproj" />
+  <Project Path="DashboardService.Api/DashboardService.Api.csproj" />
+  <Project Path="DashboardService.Test/DashboardService.Test.csproj" />
+</Solution>

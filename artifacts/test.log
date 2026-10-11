@@ -1,0 +1,45 @@
+Test run for C:\Users\ADMIN\source\repos\InsuranceMicroservices\AuthService.Test\bin\Debug\net8.0\AuthService.Test.dll (.NETCoreApp,Version=v8.0)
+A total of 1 test files matched the specified pattern.
+Results File: C:\Users\ADMIN\source\repos\InsuranceMicroservices\artifacts\test-results\ADMIN_DESKTOP-S638TH8_2026-10-11_15_40_13_net8.0.trx
+
+Passed!  - Failed:     0, Passed:     1, Skipped:     0, Total:     1, Duration: 257 ms - AuthService.Test.dll (net8.0)
+Test run for C:\Users\ADMIN\source\repos\InsuranceMicroservices\ChatService.Test\bin\Debug\net8.0\ChatService.Test.dll (.NETCoreApp,Version=v8.0)
+A total of 1 test files matched the specified pattern.
+Results File: C:\Users\ADMIN\source\repos\InsuranceMicroservices\artifacts\test-results\ADMIN_DESKTOP-S638TH8_2026-10-11_15_40_15_net8.0.trx
+
+Passed!  - Failed:     0, Passed:     1, Skipped:     0, Total:     1, Duration: 270 ms - ChatService.Test.dll (net8.0)
+Test run for C:\Users\ADMIN\source\repos\InsuranceMicroservices\DashboardService.Test\bin\Debug\net8.0\DashboardService.Test.dll (.NETCoreApp,Version=v8.0)
+A total of 1 test files matched the specified pattern.
+Results File: C:\Users\ADMIN\source\repos\InsuranceMicroservices\artifacts\test-results\ADMIN_DESKTOP-S638TH8_2026-10-11_15_40_17_net8.0.trx
+
+Passed!  - Failed:     0, Passed:     1, Skipped:     0, Total:     1, Duration: 294 ms - DashboardService.Test.dll (net8.0)
+Test run for C:\Users\ADMIN\source\repos\InsuranceMicroservices\DocumentService.Test\bin\Debug\net8.0\DocumentService.Test.dll (.NETCoreApp,Version=v8.0)
+A total of 1 test files matched the specified pattern.
+Results File: C:\Users\ADMIN\source\repos\InsuranceMicroservices\artifacts\test-results\ADMIN_DESKTOP-S638TH8_2026-10-11_15_40_18_net8.0.trx
+
+Passed!  - Failed:     0, Passed:     1, Skipped:     0, Total:     1, Duration: 302 ms - DocumentService.Test.dll (net8.0)
+Test run for C:\Users\ADMIN\source\repos\InsuranceMicroservices\PaymentService.Test\bin\Debug\net8.0\PaymentService.Test.dll (.NETCoreApp,Version=v8.0)
+A total of 1 test files matched the specified pattern.
+Results File: C:\Users\ADMIN\source\repos\InsuranceMicroservices\artifacts\test-results\ADMIN_DESKTOP-S638TH8_2026-10-11_15_40_20_net8.0.trx
+
+Passed!  - Failed:     0, Passed:     1, Skipped:     0, Total:     1, Duration: 238 ms - PaymentService.Test.dll (net8.0)
+Test run for C:\Users\ADMIN\source\repos\InsuranceMicroservices\PolicySearchService.Test\bin\Debug\net8.0\PolicySearchService.Test.dll (.NETCoreApp,Version=v8.0)
+A total of 1 test files matched the specified pattern.
+Results File: C:\Users\ADMIN\source\repos\InsuranceMicroservices\artifacts\test-results\ADMIN_DESKTOP-S638TH8_2026-10-11_15_40_22_net8.0.trx
+
+Passed!  - Failed:     0, Passed:     1, Skipped:     0, Total:     1, Duration: 221 ms - PolicySearchService.Test.dll (net8.0)
+Test run for C:\Users\ADMIN\source\repos\InsuranceMicroservices\PolicyService.Test\bin\Debug\net8.0\PolicyService.Test.dll (.NETCoreApp,Version=v8.0)
+A total of 1 test files matched the specified pattern.
+Results File: C:\Users\ADMIN\source\repos\InsuranceMicroservices\artifacts\test-results\ADMIN_DESKTOP-S638TH8_2026-10-11_15_40_23_net8.0.trx
+
+Passed!  - Failed:     0, Passed:     1, Skipped:     0, Total:     1, Duration: 171 ms - PolicyService.Test.dll (net8.0)
+Test run for C:\Users\ADMIN\source\repos\InsuranceMicroservices\PricingService.Test\bin\Debug\net8.0\PricingService.Test.dll (.NETCoreApp,Version=v8.0)
+A total of 1 test files matched the specified pattern.
+Results File: C:\Users\ADMIN\source\repos\InsuranceMicroservices\artifacts\test-results\ADMIN_DESKTOP-S638TH8_2026-10-11_15_40_25_net8.0.trx
+
+Passed!  - Failed:     0, Passed:     1, Skipped:     0, Total:     1, Duration: 304 ms - PricingService.Test.dll (net8.0)
+Test run for C:\Users\ADMIN\source\repos\InsuranceMicroservices\ProductService.Test\bin\Debug\net8.0\ProductService.Test.dll (.NETCoreApp,Version=v8.0)
+A total of 1 test files matched the specified pattern.
+Results File: C:\Users\ADMIN\source\repos\InsuranceMicroservices\artifacts\test-results\ADMIN_DESKTOP-S638TH8_2026-10-11_15_40_27_net8.0.trx
+
+Passed!  - Failed:     0, Passed:     1, Skipped:     0, Total:     1, Duration: 329 ms - ProductService.Test.dll (net8.0)
