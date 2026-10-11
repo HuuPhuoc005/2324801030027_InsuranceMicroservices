@@ -45,6 +45,10 @@ docker compose -f scripts/infra.yml ps
 
 Mật khẩu trên chỉ dùng cho môi trường thực hành cục bộ. PostgreSQL tạo bốn CSDL khi volume khởi tạo lần đầu: `lab_netmicro_payments`, `lab_netmicro_jobs`, `lab_netmicro_policy`, `lab_netmicro_pricing`, do `lab_user` sở hữu. Script SQL không tự chạy lại trên volume đã có dữ liệu.
 
+Trên máy đã kiểm tra, PostgreSQL 16.15, RabbitMQ 4.3.6 (Erlang 28.5.0.6) và Elasticsearch 8.9.2 đã được cài và chạy trực tiếp dưới dạng Windows Service vì Docker bị chặn bởi ảo hóa. Tên service: `postgresql-x64-16`, `RabbitMQ`, `elasticsearch-service-x64`. RabbitMQ native dùng tài khoản mặc định `guest`/`guest` trên localhost; tài khoản `lab_user`/`lab_pass` trong bảng là của cấu hình Docker.
+
+RabbitMQ nằm trong `.local/rabbitmq`, dữ liệu ở `.local/rabbitmq-data`; Elasticsearch nằm trong `.local/elasticsearch-8.9.2`. Các thư mục này không được commit. Không di chuyển thư mục repo khi các service còn dùng những đường dẫn này. Khi chuyển sang Docker, dừng các service native trước để tránh trùng cổng.
+
 ## Backup và restore để nộp bài
 
 ```powershell
@@ -78,6 +82,12 @@ docker compose -f scripts/infra.yml -f scripts/app.yml up -d --build
 
 Hoặc chạy riêng `dotnet run --project PaymentService` và `dotnet run --project AgentPortalApiGateway`. Payment dùng cổng 5100, Gateway 8099. Sau khi Payment đăng ký Eureka, `http://localhost:8099/api/payments/health` trả về trạng thái service.
 
+Kiểm tra chuỗi Eureka → Gateway → Payment trên Windows, sau khi build .NET và Eureka (script tự khởi động rồi dừng các tiến trình kiểm tra, cần các cổng 8761/5100/8099 đang trống):
+
+```powershell
+powershell -ExecutionPolicy Bypass -File .\scripts\smoke-gateway.ps1
+```
+
 Blazor: `dotnet run --project BlazorWasmClient`. Giao diện biên dịch được nhưng các luồng nghiệp vụ chưa hoạt động vì backend hiện là khung triển khai.
 
 Vue:
@@ -100,3 +110,5 @@ Eureka chạy bằng Java 11: trong `eureka-server`, chạy `./gradlew.bat build
 3. Chụp màn hình terminal/Visual Studio có kết quả build thành công và nộp ảnh đó. Log trong `artifacts` là bằng chứng dạng văn bản, không thay thế ảnh chụp màn hình.
 
 Thư mục `artifacts/original` giữ các file mẫu Payment đã chuyển ra ngoài project; không được commit. Git bỏ qua `.vs`, `bin`, `obj`, `node_modules` và dữ liệu backup.
+
+Hướng dẫn kỹ thuật đối chiếu: [RabbitMQ trên Windows](https://www.rabbitmq.com/docs/install-windows), [tương thích Erlang](https://www.rabbitmq.com/docs/which-erlang), [Elasticsearch ZIP trên Windows](https://www.elastic.co/guide/en/elasticsearch/reference/8.9/zip-windows.html), [service discovery Ocelot 23.3](https://ocelot.readthedocs.io/en/23.3.6/features/servicediscovery.html).

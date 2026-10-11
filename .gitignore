@@ -20,3 +20,5 @@ Web/.env.local
 !artifacts/web-build.log
 !artifacts/eureka-build.log
 !artifacts/smoke-test.log
+!artifacts/gateway-smoke-test.log
+!artifacts/native-infra.log

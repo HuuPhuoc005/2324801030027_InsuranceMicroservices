@@ -1,0 +1,11 @@
+PostgreSQL: PostgreSQL 16.15, compiled by Visual C++ build 1944, 64-bit
+RabbitMQ management HTTP API: 4.3.6
+Elasticsearch HTTP API: 8.9.2
+
+Name                       Status
+----                       ------
+elasticsearch-service-x64 Running
+postgresql-x64-16         Running
+RabbitMQ                  Running
+
+
