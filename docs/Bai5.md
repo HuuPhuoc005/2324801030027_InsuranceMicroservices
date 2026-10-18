@@ -58,7 +58,7 @@ Kết quả: `totalPrice=98`, `coverPrices={C1:26,C2:52,C3:20}`. QuestionType: T
 
 ## Minh chứng nộp bài
 
-- Link repo: https://github.com/HuuPhuoc005/InsuranceMicroservices
+- Link repo: https://github.com/HuuPhuoc005/2324801030027_InsuranceMicroservices
 - Log build/test và kiểm tra Eureka ở `artifacts/bai5-*.log`.
 - PDF ảnh chụp thực tế được lưu cục bộ ở `output/pdf/Bai5_MinhChung_Eureka_PricingService.pdf`, để nộp riêng lên elearning.
 

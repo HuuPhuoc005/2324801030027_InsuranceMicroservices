@@ -60,7 +60,7 @@ def footer(canvas, doc):
 story = [
     p('BÀI THỰC HÀNH 5', 'SmallVN'),
     p('Minh chứng Eureka và PricingService', 'TitleVN'),
-    p('Repository: <link href="https://github.com/HuuPhuoc005/InsuranceMicroservices" color="#2563EB">github.com/HuuPhuoc005/InsuranceMicroservices</link>'),
+    p('Repository: <link href="https://github.com/HuuPhuoc005/2324801030027_InsuranceMicroservices" color="#2563EB">github.com/HuuPhuoc005/2324801030027_InsuranceMicroservices</link>'),
     p('1. PricingService đăng ký trên Eureka', 'HeadingVN'),
     p('Truy cập <b>http://localhost:8761</b>. Ảnh chụp trình duyệt thực tế bên dưới hiển thị <b>PRICINGSERVICE — UP (1)</b>, instance <b>localhost:PricingService:5040</b>.'),
     screenshot('eureka.jpg'),
