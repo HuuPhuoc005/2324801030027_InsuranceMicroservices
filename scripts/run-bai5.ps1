@@ -59,9 +59,14 @@ try {
     if ($started.Count -gt 0) {
         $processFile = Join-Path $runtimeDirectory 'processes.json'
         $records = @()
-        if (Test-Path -LiteralPath $processFile) { $records += @(Get-Content -LiteralPath $processFile -Raw | ConvertFrom-Json) }
+        if (Test-Path -LiteralPath $processFile) {
+            $existing = ConvertFrom-Json -InputObject (Get-Content -LiteralPath $processFile -Raw)
+            foreach ($record in $existing) {
+                if ($null -ne $record.Id -and $null -ne $record.StartTicks) { $records += $record }
+            }
+        }
         $records += @($started | ForEach-Object { [pscustomobject]@{ Id=$_.Id; StartTicks=$_.StartTime.ToUniversalTime().Ticks.ToString() } })
-        $records | ConvertTo-Json | Set-Content $processFile -Encoding utf8
+        ConvertTo-Json -InputObject @($records) -Depth 4 | Set-Content $processFile -Encoding utf8
     }
 } catch {
     foreach ($process in $started) { if (-not $process.HasExited) { Stop-Process -Id $process.Id -Force } }
