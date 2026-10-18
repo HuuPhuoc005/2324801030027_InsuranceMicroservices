@@ -1,0 +1,4 @@
+﻿Eureka localhost:8761: HTTP 200
+PRICINGSERVICE registered: UP, localhost:5040
+POST /api/Pricing: HTTP 200, totalPrice=98, C1=26, C2=52, C3=20
+Invalid pricing request: HTTP 400

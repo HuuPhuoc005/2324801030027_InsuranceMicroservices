@@ -1,0 +1,80 @@
+  Determining projects to restore...
+  All projects are up-to-date for restore.
+  AuthService.Api -> C:\Users\ADMIN\source\repos\InsuranceMicroservices\AuthService.Api\bin\Debug\net8.0\AuthService.Api.dll
+  AuthService -> C:\Users\ADMIN\source\repos\InsuranceMicroservices\AuthService\bin\Debug\net8.0\AuthService.dll
+  AuthService.Test -> C:\Users\ADMIN\source\repos\InsuranceMicroservices\AuthService.Test\bin\Debug\net8.0\AuthService.Test.dll
+Test run for C:\Users\ADMIN\source\repos\InsuranceMicroservices\AuthService.Test\bin\Debug\net8.0\AuthService.Test.dll (.NETCoreApp,Version=v8.0)
+A total of 1 test files matched the specified pattern.
+Results File: C:\Users\ADMIN\source\repos\InsuranceMicroservices\artifacts\bai5-test-results\ADMIN_DESKTOP-S638TH8_2026-10-18_13_30_49_net8.0.trx
+
+Passed!  - Failed:     0, Passed:     1, Skipped:     0, Total:     1, Duration: 278 ms - AuthService.Test.dll (net8.0)
+  ChatService.Api -> C:\Users\ADMIN\source\repos\InsuranceMicroservices\ChatService.Api\bin\Debug\net8.0\ChatService.Api.dll
+  ChatService -> C:\Users\ADMIN\source\repos\InsuranceMicroservices\ChatService\bin\Debug\net8.0\ChatService.dll
+  ChatService.Test -> C:\Users\ADMIN\source\repos\InsuranceMicroservices\ChatService.Test\bin\Debug\net8.0\ChatService.Test.dll
+Test run for C:\Users\ADMIN\source\repos\InsuranceMicroservices\ChatService.Test\bin\Debug\net8.0\ChatService.Test.dll (.NETCoreApp,Version=v8.0)
+A total of 1 test files matched the specified pattern.
+Results File: C:\Users\ADMIN\source\repos\InsuranceMicroservices\artifacts\bai5-test-results\ADMIN_DESKTOP-S638TH8_2026-10-18_13_30_51_net8.0.trx
+
+Passed!  - Failed:     0, Passed:     1, Skipped:     0, Total:     1, Duration: 342 ms - ChatService.Test.dll (net8.0)
+  DashboardService.Api -> C:\Users\ADMIN\source\repos\InsuranceMicroservices\DashboardService.Api\bin\Debug\net8.0\DashboardService.Api.dll
+  DashboardService -> C:\Users\ADMIN\source\repos\InsuranceMicroservices\DashboardService\bin\Debug\net8.0\DashboardService.dll
+  DashboardService.Test -> C:\Users\ADMIN\source\repos\InsuranceMicroservices\DashboardService.Test\bin\Debug\net8.0\DashboardService.Test.dll
+Test run for C:\Users\ADMIN\source\repos\InsuranceMicroservices\DashboardService.Test\bin\Debug\net8.0\DashboardService.Test.dll (.NETCoreApp,Version=v8.0)
+A total of 1 test files matched the specified pattern.
+Results File: C:\Users\ADMIN\source\repos\InsuranceMicroservices\artifacts\bai5-test-results\ADMIN_DESKTOP-S638TH8_2026-10-18_13_30_53_net8.0.trx
+
+Passed!  - Failed:     0, Passed:     1, Skipped:     0, Total:     1, Duration: 308 ms - DashboardService.Test.dll (net8.0)
+  DocumentService.Api -> C:\Users\ADMIN\source\repos\InsuranceMicroservices\DocumentService.Api\bin\Debug\net8.0\DocumentService.Api.dll
+  DocumentService -> C:\Users\ADMIN\source\repos\InsuranceMicroservices\DocumentService\bin\Debug\net8.0\DocumentService.dll
+  DocumentService.Test -> C:\Users\ADMIN\source\repos\InsuranceMicroservices\DocumentService.Test\bin\Debug\net8.0\DocumentService.Test.dll
+Test run for C:\Users\ADMIN\source\repos\InsuranceMicroservices\DocumentService.Test\bin\Debug\net8.0\DocumentService.Test.dll (.NETCoreApp,Version=v8.0)
+A total of 1 test files matched the specified pattern.
+Results File: C:\Users\ADMIN\source\repos\InsuranceMicroservices\artifacts\bai5-test-results\ADMIN_DESKTOP-S638TH8_2026-10-18_13_30_56_net8.0.trx
+
+Passed!  - Failed:     0, Passed:     1, Skipped:     0, Total:     1, Duration: 350 ms - DocumentService.Test.dll (net8.0)
+  PaymentService.Api -> C:\Users\ADMIN\source\repos\InsuranceMicroservices\PaymentService.Api\bin\Debug\net8.0\PaymentService.Api.dll
+  PaymentService -> C:\Users\ADMIN\source\repos\InsuranceMicroservices\PaymentService\bin\Debug\net8.0\PaymentService.dll
+  PaymentService.Test -> C:\Users\ADMIN\source\repos\InsuranceMicroservices\PaymentService.Test\bin\Debug\net8.0\PaymentService.Test.dll
+Test run for C:\Users\ADMIN\source\repos\InsuranceMicroservices\PaymentService.Test\bin\Debug\net8.0\PaymentService.Test.dll (.NETCoreApp,Version=v8.0)
+A total of 1 test files matched the specified pattern.
+Results File: C:\Users\ADMIN\source\repos\InsuranceMicroservices\artifacts\bai5-test-results\ADMIN_DESKTOP-S638TH8_2026-10-18_13_30_58_net8.0.trx
+
+Passed!  - Failed:     0, Passed:     1, Skipped:     0, Total:     1, Duration: 386 ms - PaymentService.Test.dll (net8.0)
+  PolicySearchService.Api -> C:\Users\ADMIN\source\repos\InsuranceMicroservices\PolicySearchService.Api\bin\Debug\net8.0\PolicySearchService.Api.dll
+  PolicySearchService -> C:\Users\ADMIN\source\repos\InsuranceMicroservices\PolicySearchService\bin\Debug\net8.0\PolicySearchService.dll
+  PolicySearchService.Test -> C:\Users\ADMIN\source\repos\InsuranceMicroservices\PolicySearchService.Test\bin\Debug\net8.0\PolicySearchService.Test.dll
+Test run for C:\Users\ADMIN\source\repos\InsuranceMicroservices\PolicySearchService.Test\bin\Debug\net8.0\PolicySearchService.Test.dll (.NETCoreApp,Version=v8.0)
+A total of 1 test files matched the specified pattern.
+Results File: C:\Users\ADMIN\source\repos\InsuranceMicroservices\artifacts\bai5-test-results\ADMIN_DESKTOP-S638TH8_2026-10-18_13_31_00_net8.0.trx
+
+Passed!  - Failed:     0, Passed:     1, Skipped:     0, Total:     1, Duration: 375 ms - PolicySearchService.Test.dll (net8.0)
+  PolicyService.Api -> C:\Users\ADMIN\source\repos\InsuranceMicroservices\PolicyService.Api\bin\Debug\net8.0\PolicyService.Api.dll
+  PolicyService -> C:\Users\ADMIN\source\repos\InsuranceMicroservices\PolicyService\bin\Debug\net8.0\PolicyService.dll
+  PolicyService.Test -> C:\Users\ADMIN\source\repos\InsuranceMicroservices\PolicyService.Test\bin\Debug\net8.0\PolicyService.Test.dll
+Test run for C:\Users\ADMIN\source\repos\InsuranceMicroservices\PolicyService.Test\bin\Debug\net8.0\PolicyService.Test.dll (.NETCoreApp,Version=v8.0)
+A total of 1 test files matched the specified pattern.
+Results File: C:\Users\ADMIN\source\repos\InsuranceMicroservices\artifacts\bai5-test-results\ADMIN_DESKTOP-S638TH8_2026-10-18_13_31_02_net8.0.trx
+
+Passed!  - Failed:     0, Passed:     1, Skipped:     0, Total:     1, Duration: 357 ms - PolicyService.Test.dll (net8.0)
+  PricingService.Api -> C:\Users\ADMIN\source\repos\InsuranceMicroservices\PricingService.Api\bin\Debug\net8.0\PricingService.Api.dll
+  PricingService -> C:\Users\ADMIN\source\repos\InsuranceMicroservices\PricingService\bin\Debug\net8.0\PricingService.dll
+  PricingService.IntegrationTest -> C:\Users\ADMIN\source\repos\InsuranceMicroservices\PricingService.IntegrationTest\bin\Debug\net8.0\PricingService.IntegrationTest.dll
+Test run for C:\Users\ADMIN\source\repos\InsuranceMicroservices\PricingService.IntegrationTest\bin\Debug\net8.0\PricingService.IntegrationTest.dll (.NETCoreApp,Version=v8.0)
+A total of 1 test files matched the specified pattern.
+Results File: C:\Users\ADMIN\source\repos\InsuranceMicroservices\artifacts\bai5-test-results\ADMIN_DESKTOP-S638TH8_2026-10-18_13_31_10_net8.0.trx
+
+Passed!  - Failed:     0, Passed:     5, Skipped:     0, Total:     5, Duration: 248 ms - PricingService.IntegrationTest.dll (net8.0)
+  PricingService.Test -> C:\Users\ADMIN\source\repos\InsuranceMicroservices\PricingService.Test\bin\Debug\net8.0\PricingService.Test.dll
+Test run for C:\Users\ADMIN\source\repos\InsuranceMicroservices\PricingService.Test\bin\Debug\net8.0\PricingService.Test.dll (.NETCoreApp,Version=v8.0)
+A total of 1 test files matched the specified pattern.
+Results File: C:\Users\ADMIN\source\repos\InsuranceMicroservices\artifacts\bai5-test-results\ADMIN_DESKTOP-S638TH8_2026-10-18_13_31_12_net8.0.trx
+
+Passed!  - Failed:     0, Passed:    16, Skipped:     0, Total:    16, Duration: 788 ms - PricingService.Test.dll (net8.0)
+  ProductService.Api -> C:\Users\ADMIN\source\repos\InsuranceMicroservices\ProductService.Api\bin\Debug\net8.0\ProductService.Api.dll
+  ProductService -> C:\Users\ADMIN\source\repos\InsuranceMicroservices\ProductService\bin\Debug\net8.0\ProductService.dll
+  ProductService.Test -> C:\Users\ADMIN\source\repos\InsuranceMicroservices\ProductService.Test\bin\Debug\net8.0\ProductService.Test.dll
+Test run for C:\Users\ADMIN\source\repos\InsuranceMicroservices\ProductService.Test\bin\Debug\net8.0\ProductService.Test.dll (.NETCoreApp,Version=v8.0)
+A total of 1 test files matched the specified pattern.
+Results File: C:\Users\ADMIN\source\repos\InsuranceMicroservices\artifacts\bai5-test-results\ADMIN_DESKTOP-S638TH8_2026-10-18_13_31_14_net8.0.trx
+
+Passed!  - Failed:     0, Passed:     1, Skipped:     0, Total:     1, Duration: 350 ms - ProductService.Test.dll (net8.0)

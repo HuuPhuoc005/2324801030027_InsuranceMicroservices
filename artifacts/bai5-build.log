@@ -1,0 +1,37 @@
+  AgentPortalApiGateway -> C:\Users\ADMIN\source\repos\InsuranceMicroservices\AgentPortalApiGateway\bin\Debug\net8.0\AgentPortalApiGateway.dll
+  AuthService.Api -> C:\Users\ADMIN\source\repos\InsuranceMicroservices\AuthService.Api\bin\Debug\net8.0\AuthService.Api.dll
+  AuthService -> C:\Users\ADMIN\source\repos\InsuranceMicroservices\AuthService\bin\Debug\net8.0\AuthService.dll
+  AuthService.Test -> C:\Users\ADMIN\source\repos\InsuranceMicroservices\AuthService.Test\bin\Debug\net8.0\AuthService.Test.dll
+  DashboardService.Api -> C:\Users\ADMIN\source\repos\InsuranceMicroservices\DashboardService.Api\bin\Debug\net8.0\DashboardService.Api.dll
+  PolicySearchService.Api -> C:\Users\ADMIN\source\repos\InsuranceMicroservices\PolicySearchService.Api\bin\Debug\net8.0\PolicySearchService.Api.dll
+  PolicyService.Api -> C:\Users\ADMIN\source\repos\InsuranceMicroservices\PolicyService.Api\bin\Debug\net8.0\PolicyService.Api.dll
+  PricingService.Api -> C:\Users\ADMIN\source\repos\InsuranceMicroservices\PricingService.Api\bin\Debug\net8.0\PricingService.Api.dll
+  ProductService.Api -> C:\Users\ADMIN\source\repos\InsuranceMicroservices\ProductService.Api\bin\Debug\net8.0\ProductService.Api.dll
+  BlazorWasmClient -> C:\Users\ADMIN\source\repos\InsuranceMicroservices\BlazorWasmClient\bin\Debug\net8.0\BlazorWasmClient.dll
+  BlazorWasmClient (Blazor output) -> C:\Users\ADMIN\source\repos\InsuranceMicroservices\BlazorWasmClient\bin\Debug\net8.0\wwwroot
+  ChatService.Api -> C:\Users\ADMIN\source\repos\InsuranceMicroservices\ChatService.Api\bin\Debug\net8.0\ChatService.Api.dll
+  ChatService -> C:\Users\ADMIN\source\repos\InsuranceMicroservices\ChatService\bin\Debug\net8.0\ChatService.dll
+  ChatService.Test -> C:\Users\ADMIN\source\repos\InsuranceMicroservices\ChatService.Test\bin\Debug\net8.0\ChatService.Test.dll
+  DashboardService -> C:\Users\ADMIN\source\repos\InsuranceMicroservices\DashboardService\bin\Debug\net8.0\DashboardService.dll
+  DashboardService.Test -> C:\Users\ADMIN\source\repos\InsuranceMicroservices\DashboardService.Test\bin\Debug\net8.0\DashboardService.Test.dll
+  DocumentService.Api -> C:\Users\ADMIN\source\repos\InsuranceMicroservices\DocumentService.Api\bin\Debug\net8.0\DocumentService.Api.dll
+  DocumentService -> C:\Users\ADMIN\source\repos\InsuranceMicroservices\DocumentService\bin\Debug\net8.0\DocumentService.dll
+  DocumentService.Test -> C:\Users\ADMIN\source\repos\InsuranceMicroservices\DocumentService.Test\bin\Debug\net8.0\DocumentService.Test.dll
+  PaymentService.Api -> C:\Users\ADMIN\source\repos\InsuranceMicroservices\PaymentService.Api\bin\Debug\net8.0\PaymentService.Api.dll
+  PaymentService -> C:\Users\ADMIN\source\repos\InsuranceMicroservices\PaymentService\bin\Debug\net8.0\PaymentService.dll
+  PaymentService.Test -> C:\Users\ADMIN\source\repos\InsuranceMicroservices\PaymentService.Test\bin\Debug\net8.0\PaymentService.Test.dll
+  PolicySearchService -> C:\Users\ADMIN\source\repos\InsuranceMicroservices\PolicySearchService\bin\Debug\net8.0\PolicySearchService.dll
+  PolicySearchService.Test -> C:\Users\ADMIN\source\repos\InsuranceMicroservices\PolicySearchService.Test\bin\Debug\net8.0\PolicySearchService.Test.dll
+  PolicyService -> C:\Users\ADMIN\source\repos\InsuranceMicroservices\PolicyService\bin\Debug\net8.0\PolicyService.dll
+  PolicyService.Test -> C:\Users\ADMIN\source\repos\InsuranceMicroservices\PolicyService.Test\bin\Debug\net8.0\PolicyService.Test.dll
+  PricingService -> C:\Users\ADMIN\source\repos\InsuranceMicroservices\PricingService\bin\Debug\net8.0\PricingService.dll
+  PricingService.IntegrationTest -> C:\Users\ADMIN\source\repos\InsuranceMicroservices\PricingService.IntegrationTest\bin\Debug\net8.0\PricingService.IntegrationTest.dll
+  PricingService.Test -> C:\Users\ADMIN\source\repos\InsuranceMicroservices\PricingService.Test\bin\Debug\net8.0\PricingService.Test.dll
+  ProductService -> C:\Users\ADMIN\source\repos\InsuranceMicroservices\ProductService\bin\Debug\net8.0\ProductService.dll
+  ProductService.Test -> C:\Users\ADMIN\source\repos\InsuranceMicroservices\ProductService.Test\bin\Debug\net8.0\ProductService.Test.dll
+
+Build succeeded.
+    0 Warning(s)
+    0 Error(s)
+
+Time Elapsed 00:00:04.82

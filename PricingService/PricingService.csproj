@@ -4,6 +4,9 @@
     <ProjectReference Include="../PricingService.Api/PricingService.Api.csproj" />
     <PackageReference Include="MediatR" Version="12.4.1" />
     <PackageReference Include="Steeltoe.Discovery.Eureka" Version="3.4.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="8.0.31" />
+    <PackageReference Include="DynamicExpresso.Core" Version="2.19.3" />
+    <PackageReference Include="Npgsql" Version="8.0.9" />
   </ItemGroup>
 </Project>
 

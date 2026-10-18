@@ -1,13 +1,10 @@
-using MediatR;
-using Steeltoe.Discovery.Client;
-using PricingService.Api.Queries;
-var builder = WebApplication.CreateBuilder(args);
-builder.Services.AddControllers();
-builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssemblyContaining<Program>());
-builder.Services.AddDiscoveryClient(builder.Configuration);
-var app = builder.Build();
-app.MapControllers();
-app.MapGet("/health", (ISender sender, CancellationToken ct) => sender.Send(new GetHealthQuery(), ct));
-app.MapGet("/api/pricing/health", (ISender sender, CancellationToken ct) => sender.Send(new GetHealthQuery(), ct));
-app.Run();
-public partial class Program { }
+namespace PricingService;
+
+public partial class Program
+{
+    public static Task Main(string[] args) => CreateWebHostBuilder(args).Build().RunAsync();
+
+    // Preserve the host entry point used by the lecturer's Alba integration fixture.
+    public static IHostBuilder CreateWebHostBuilder(string[] args)
+        => Host.CreateDefaultBuilder(args).ConfigureWebHostDefaults(web => web.UseStartup<Startup>());
+}

@@ -11,6 +11,8 @@
 *.suo
 artifacts/original/
 artifacts/test-results/
+artifacts/bai5-test-results/
+output/pdf/
 backups/
 Web/.env.local
 .env
@@ -22,3 +24,4 @@ Web/.env.local
 !artifacts/smoke-test.log
 !artifacts/gateway-smoke-test.log
 !artifacts/native-infra.log
+!artifacts/bai5-*.log
