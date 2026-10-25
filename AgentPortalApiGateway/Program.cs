@@ -1,8 +1,10 @@
-﻿using System.Text;
+using System;
+using System.Text;
 using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.IdentityModel.Tokens;
@@ -25,6 +27,7 @@ public class Program
         var key = Encoding.ASCII.GetBytes("THIS_IS_A_RANDOM_SECRET_2e7a1e80-16ee-4e52-b5c6-5e8892453459");
 
         return WebHost.CreateDefaultBuilder(args)
+            .UseUrls(Environment.GetEnvironmentVariable("ASPNETCORE_URLS") ?? "http://localhost:8099")
             .ConfigureAppConfiguration((hostingContext, config) =>
             {
                 config
@@ -34,7 +37,8 @@ public class Program
                         true)
                     .AddJsonFile("ocelot.json", false, false)
                     .AddJsonFile($"ocelot.{hostingContext.HostingEnvironment.EnvironmentName}.json", true, true)
-                    .AddEnvironmentVariables();
+                    .AddEnvironmentVariables()
+                    .AddCommandLine(args);
             })
             .ConfigureServices(s =>
             {
@@ -72,7 +76,9 @@ public class Program
                     .AllowAnyHeader()
                     .AllowCredentials()
                 );
-                a.UseOcelot().Wait();
+                a.Map("/health", health => health.Run(context => context.Response.WriteAsJsonAsync(new { service = "AgentPortalApiGateway", status = "UP" })));
+                a.UseWebSockets();
+                a.UseOcelot().GetAwaiter().GetResult();
             })
             .Build();
     }

@@ -2,6 +2,7 @@ FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 WORKDIR /src
 COPY ChatService.Api/ ChatService.Api/
 COPY ChatService/ ChatService/
+COPY PolicyService.Api/ PolicyService.Api/
 RUN dotnet publish ChatService/ChatService.csproj -c Release -o /out
 FROM mcr.microsoft.com/dotnet/aspnet:8.0
 WORKDIR /app

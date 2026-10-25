@@ -46,9 +46,6 @@
       "UpstreamHttpMethod": [
         "Post"
       ],
-      "FileCacheOptions": {
-        "TtlSeconds": 15
-      },
       "AuthenticationOptions": {
         "AuthenticationProviderKey": "ApiSecurity",
         "AllowedScopes": []
@@ -123,7 +120,6 @@
         "AuthenticationProviderKey": "ApiSecurity",
         "AllowedScopes": []
       },
-
       "RouteClaimsRequirement": {
         "userType": "SALESMAN"
       }
@@ -136,10 +132,90 @@
       "UpstreamHttpMethod": [
         "Get"
       ]
+    },
+    {
+      "DownstreamPathTemplate": "/api/Products/{everything}",
+      "DownstreamScheme": "http",
+      "UpstreamPathTemplate": "/Products/{everything}",
+      "ServiceName": "ProductService",
+      "UpstreamHttpMethod": [
+        "Get"
+      ],
+      "FileCacheOptions": {
+        "TtlSeconds": 15
+      },
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "ApiSecurity",
+        "AllowedScopes": []
+      },
+      "RouteClaimsRequirement": {
+        "userType": "SALESMAN"
+      }
+    },
+    {
+      "DownstreamPathTemplate": "/api/Products",
+      "DownstreamScheme": "http",
+      "UpstreamPathTemplate": "/Products",
+      "ServiceName": "ProductService",
+      "UpstreamHttpMethod": [
+        "Get"
+      ],
+      "FileCacheOptions": {
+        "TtlSeconds": 15
+      },
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "ApiSecurity",
+        "AllowedScopes": []
+      },
+      "RouteClaimsRequirement": {
+        "userType": "SALESMAN"
+      }
+    },
+    {
+      "UpstreamPathTemplate": "/api/User",
+      "DownstreamPathTemplate": "/api/User",
+      "DownstreamScheme": "http",
+      "ServiceName": "AuthService",
+      "UpstreamHttpMethod": [
+        "Post",
+        "Get"
+      ]
+    },
+    {
+      "UpstreamPathTemplate": "/api/Notification",
+      "DownstreamPathTemplate": "/api/Notification",
+      "DownstreamScheme": "http",
+      "ServiceName": "ChatService",
+      "UpstreamHttpMethod": [
+        "Post"
+      ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "ApiSecurity",
+        "AllowedScopes": []
+      }
+    },
+    {
+      "UpstreamPathTemplate": "/agentsChat/{everything}",
+      "DownstreamPathTemplate": "/agentsChat/{everything}",
+      "DownstreamScheme": "http",
+      "ServiceName": "ChatService",
+      "UpstreamHttpMethod": [
+        "Get",
+        "Post",
+        "Delete"
+      ]
+    },
+    {
+      "UpstreamPathTemplate": "/agentsChat",
+      "DownstreamPathTemplate": "/agentsChat",
+      "DownstreamScheme": "ws",
+      "ServiceName": "ChatService",
+      "UpstreamHttpMethod": [
+        "Get"
+      ]
     }
   ],
   "GlobalConfiguration": {
-
     "RequestIdKey": "OcRequestId",
     "AdministrationPath": "/administration",
     "UseServiceDiscovery": true,

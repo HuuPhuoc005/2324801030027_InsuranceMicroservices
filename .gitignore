@@ -25,3 +25,5 @@ Web/.env.local
 !artifacts/gateway-smoke-test.log
 !artifacts/native-infra.log
 !artifacts/bai5-*.log
+!artifacts/bai6-*.log
+artifacts/bai6-test-results/

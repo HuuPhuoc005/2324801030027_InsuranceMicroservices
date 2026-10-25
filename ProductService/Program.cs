@@ -9,5 +9,6 @@ var app = builder.Build();
 app.MapControllers();
 app.MapGet("/health", (ISender sender, CancellationToken ct) => sender.Send(new GetHealthQuery(), ct));
 app.MapGet("/api/product/health", (ISender sender, CancellationToken ct) => sender.Send(new GetHealthQuery(), ct));
+app.MapGet("/api/products/health", (ISender sender, CancellationToken ct) => sender.Send(new GetHealthQuery(), ct));
 app.Run();
 public partial class Program { }

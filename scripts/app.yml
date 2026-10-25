@@ -16,6 +16,10 @@ services:
       context: ../
       dockerfile: ChatService/Dockerfile
     container_name: dotnet-chat-service
+    environment:
+      RabbitMqOptions__Host: rabbit
+      RabbitMqOptions__Username: lab_user
+      RabbitMqOptions__Password: lab_pass
     ports: ["4099:4099"]
   dotnet-pricing-service:
     build:
@@ -60,6 +64,11 @@ services:
       context: ../
       dockerfile: DashboardService/Dockerfile
     container_name: dotnet-dashboard-service
+    environment:
+      RabbitMqOptions__Host: rabbit
+      RabbitMqOptions__Username: lab_user
+      RabbitMqOptions__Password: lab_pass
+      ConnectionStrings__ElasticSearchConnection: http://elasticsearch:9200
     ports: ["5035:5035"]
   dotnet-web-vue:
     build: ../Web

@@ -1,13 +1,9 @@
-using MediatR;
-using Steeltoe.Discovery.Client;
-using DashboardService.Api.Queries;
-var builder = WebApplication.CreateBuilder(args);
-builder.Services.AddControllers();
-builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssemblyContaining<Program>());
-builder.Services.AddDiscoveryClient(builder.Configuration);
-var app = builder.Build();
-app.MapControllers();
-app.MapGet("/health", (ISender sender, CancellationToken ct) => sender.Send(new GetHealthQuery(), ct));
-app.MapGet("/api/dashboard/health", (ISender sender, CancellationToken ct) => sender.Send(new GetHealthQuery(), ct));
-app.Run();
-public partial class Program { }
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.Extensions.Hosting;
+namespace DashboardService;
+public partial class Program
+{
+    public static void Main(string[] args) => CreateHostBuilder(args).Build().Run();
+    public static IHostBuilder CreateHostBuilder(string[] args) =>
+        Host.CreateDefaultBuilder(args).ConfigureWebHostDefaults(web => web.UseStartup<Startup>());
+}

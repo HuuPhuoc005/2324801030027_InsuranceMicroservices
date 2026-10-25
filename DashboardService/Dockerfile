@@ -2,6 +2,7 @@ FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 WORKDIR /src
 COPY DashboardService.Api/ DashboardService.Api/
 COPY DashboardService/ DashboardService/
+COPY PolicyService.Api/ PolicyService.Api/
 RUN dotnet publish DashboardService/DashboardService.csproj -c Release -o /out
 FROM mcr.microsoft.com/dotnet/aspnet:8.0
 WORKDIR /app
