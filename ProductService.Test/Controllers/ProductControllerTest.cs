@@ -14,7 +14,12 @@ public class ProductsControllerTest : IClassFixture<WebApplicationFactory<Progra
 
     public ProductsControllerTest(WebApplicationFactory<Program> factory)
     {
-        this.factory = factory;
+        this.factory = factory.WithWebHostBuilder(builder =>
+        {
+            builder.UseSetting("eureka:client:shouldRegisterWithEureka", "false");
+            builder.UseSetting("eureka:client:shouldFetchRegistry", "false");
+            builder.UseSetting("eureka:client:enabled", "false");
+        });
     }
 
     [Fact]
