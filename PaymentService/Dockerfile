@@ -1,13 +1,36 @@
 FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
-WORKDIR /src
-COPY PaymentService.Api/ PaymentService.Api/
-COPY PaymentService/ PaymentService/
-RUN dotnet publish PaymentService/PaymentService.csproj -c Release -o /out
-FROM mcr.microsoft.com/dotnet/aspnet:8.0
+
+ENV APP_HOME /opt/app
+RUN mkdir $APP_HOME
+WORKDIR $APP_HOME
+
+COPY PolicyService.Api/*.csproj $APP_HOME/PolicyService.Api/
+COPY PaymentService.Api/*.csproj $APP_HOME/PaymentService.Api/
+COPY PaymentService/*.csproj $APP_HOME/PaymentService/
+RUN  cd $APP_HOME/PaymentService && dotnet restore
+
+COPY PolicyService.Api $APP_HOME/PolicyService.Api/
+COPY PaymentService.Api $APP_HOME/PaymentService.Api/
+COPY PaymentService $APP_HOME/PaymentService/
+RUN cd $APP_HOME/PaymentService && dotnet build
+
+COPY PaymentService.Test/*.csproj $APP_HOME/PaymentService.Test/
+RUN cd $APP_HOME/PaymentService.Test && dotnet restore
+
+COPY PaymentService.Test .$APP_HOME/PaymentService.Test/
+RUN cd $APP_HOME/PaymentService.Test && dotnet build
+
+FROM build AS test
+WORKDIR $APP_HOME/PaymentService.Test
+RUN dotnet test --verbosity:normal
+
+FROM build AS publish
+WORKDIR $APP_HOME/PaymentService
+RUN dotnet publish -c Release -o out
+
+FROM mcr.microsoft.com/dotnet/aspnet:8.0 AS final
 WORKDIR /app
-COPY --from=build /out .
-ENV ASPNETCORE_URLS=http://+:5100
-ENV Urls=http://+:5100
-ENV eureka__client__serviceUrl=http://eureka-server:8761/eureka/
-ENV eureka__instance__hostName=dotnet-payment-service
+ENV ASPNETCORE_URLS=http://+:5070
+ENV ASPNETCORE_ENVIRONMENT=docker
+COPY --from=publish /opt/app/PaymentService/out ./
 ENTRYPOINT ["dotnet", "PaymentService.dll"]

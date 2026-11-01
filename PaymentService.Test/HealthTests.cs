@@ -1,8 +1,12 @@
+using System.Threading.Tasks;
 using MediatR;
 using Microsoft.Extensions.DependencyInjection;
 using PaymentService.Api.Queries;
 using PaymentService.Queries;
+using Xunit;
+
 namespace PaymentService.Test;
+
 public class HealthTests
 {
     [Fact]

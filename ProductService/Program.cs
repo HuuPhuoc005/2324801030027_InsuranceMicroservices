@@ -1,14 +1,50 @@
-using MediatR;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
+using ProductService.DataAccess.EF;
+using ProductService.Init;
 using Steeltoe.Discovery.Client;
-using ProductService.Api.Queries;
+
 var builder = WebApplication.CreateBuilder(args);
-builder.Services.AddControllers();
-builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssemblyContaining<Program>());
+
+// Add services to the container.
+
+builder.Services
+    .AddControllers()
+    .AddNewtonsoftJson(options =>
+    {
+        options.SerializerSettings.Converters.Add(new StringEnumConverter());
+        options.SerializerSettings.NullValueHandling = NullValueHandling.Ignore;
+    });
+// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
+builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddSwaggerGen();
+
 builder.Services.AddDiscoveryClient(builder.Configuration);
+builder.Services.AddEFConfiguration(builder.Configuration);
+builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssemblyContaining<Program>());
+builder.Services.AddProductDemoInitializer();
+
 var app = builder.Build();
+
+// Configure the HTTP request pipeline.
+if (app.Environment.IsDevelopment())
+{
+    app.UseSwagger();
+    app.UseSwaggerUI();
+}
+
+app.UseHttpsRedirection();
+
+app.UseAuthorization();
+
 app.MapControllers();
-app.MapGet("/health", (ISender sender, CancellationToken ct) => sender.Send(new GetHealthQuery(), ct));
-app.MapGet("/api/product/health", (ISender sender, CancellationToken ct) => sender.Send(new GetHealthQuery(), ct));
-app.MapGet("/api/products/health", (ISender sender, CancellationToken ct) => sender.Send(new GetHealthQuery(), ct));
+app.MapGet("/health", (MediatR.IMediator mediator, CancellationToken ct) => mediator.Send(new ProductService.Api.Queries.GetHealthQuery(), ct));
+app.MapGet("/api/products/health", (MediatR.IMediator mediator, CancellationToken ct) => mediator.Send(new ProductService.Api.Queries.GetHealthQuery(), ct));
+
+app.UseInitializer();
+
 app.Run();
-public partial class Program { }
+
+public partial class Program
+{
+}
