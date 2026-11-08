@@ -1,6 +1,10 @@
+﻿using System.Threading;
+using System.Threading.Tasks;
 using MediatR;
 using PolicySearchService.Api.Queries;
+
 namespace PolicySearchService.Queries;
+
 public class GetHealthHandler : IRequestHandler<GetHealthQuery, ServiceHealth>
 {
     public Task<ServiceHealth> Handle(GetHealthQuery request, CancellationToken cancellationToken)

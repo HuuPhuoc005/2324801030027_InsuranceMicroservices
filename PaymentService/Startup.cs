@@ -1,5 +1,6 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
+using System.Threading;
 using GlobalExceptionHandler.WebApi;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -60,6 +61,11 @@ public class Startup
         app.UseInitializer();
         app.UseRabbitListeners(new List<Type> { typeof(PolicyCreated), typeof(PolicyTerminated) });
         app.UseBackgroundJobs();
-        app.UseEndpoints(endpoints => endpoints.MapControllers());
+        app.UseEndpoints(endpoints =>
+        {
+            endpoints.MapControllers();
+            endpoints.MapGet("/health", (MediatR.IMediator mediator, CancellationToken ct) => mediator.Send(new PaymentService.Api.Queries.GetHealthQuery(), ct));
+            endpoints.MapGet("/api/payment/health", (MediatR.IMediator mediator, CancellationToken ct) => mediator.Send(new PaymentService.Api.Queries.GetHealthQuery(), ct));
+        });
     }
 }

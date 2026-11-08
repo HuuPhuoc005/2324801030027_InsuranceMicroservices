@@ -1,8 +1,12 @@
+﻿using System.Threading.Tasks;
 using MediatR;
 using Microsoft.Extensions.DependencyInjection;
 using PolicyService.Api.Queries;
 using PolicyService.Queries;
+using Xunit;
+
 namespace PolicyService.Test;
+
 public class HealthTests
 {
     [Fact]
