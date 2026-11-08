@@ -1,19 +1,26 @@
 @page "/Chat"
 @using Microsoft.AspNetCore.SignalR.Client
 @using BlazorWasmClient.Components.Auth
+@implements IAsyncDisposable
 
 <Card>
     <CardBody>
+        @if (!string.IsNullOrEmpty(statusMessage))
+        {
+            <Alert Color="statusColor" Visible="true" Margin="Margin.Is2.FromBottom">
+                <AlertMessage>@statusMessage</AlertMessage>
+            </Alert>
+        }
         <Row>
             <Column ColumnSize="ColumnSize.Is12">
                 <Inline>
                     <Field ColumnSize="ColumnSize.Is9">
-                        <TextEdit @bind-Text="Message" Width="Width.Is100"/>
+                        <TextEdit @bind-Text="Message" @onkeyup="HandleKeyUp" Placeholder="Nhập tin nhắn..." Width="Width.Is100"/>
                     </Field>
                     <Field>
                         <Button
                             @onclick="SendMessage"
-                            disabled="@(!IsConnected)"
+                            Disabled="@(!IsConnected)"
                             Margin="Margin.Is2.OnX"
                             Color="Color.Primary">
                             <Icon Name="IconName.Phone"/> Send
@@ -34,11 +41,10 @@
                 }
                 else
                 {
-                    <Alert Color="Color.Success" Visible>
+                    <Alert Color="Color.Success" Visible="true">
                         <AlertMessage>@msg.Text</AlertMessage>
                     </Alert>
                 }
-                
             </CardText>
         }
     </CardBody>
@@ -52,6 +58,8 @@
     private IConfiguration Configuration { get; set; }
     
     private string Message { get; set; }
+    private string statusMessage { get; set; }
+    private Color statusColor { get; set; } = Color.Info;
 
     private List<ChatMessage> Messages { get; set; } = new ();
 
@@ -59,37 +67,98 @@
     
     protected override async Task OnInitializedAsync()
     {
-        var authProvider = (CustomAuthenticationStateProvider)AuthStateProvider;
-        hubConnection = new HubConnectionBuilder()
-            .WithUrl($"{Configuration["Services:Chat"]}/agentsChat", opts =>
+        try
+        {
+            var authProvider = (CustomAuthenticationStateProvider)AuthStateProvider;
+            var token = await authProvider.GetToken();
+            if (string.IsNullOrEmpty(token))
             {
-                opts.AccessTokenProvider = () => authProvider.GetToken();
-            })
-            .WithAutomaticReconnect()
-            .Build();
+                statusColor = Color.Warning;
+                statusMessage = "Bạn chưa đăng nhập hoặc phiên làm việc đã hết hạn. Vui lòng đăng nhập để sử dụng Chat.";
+                return;
+            }
 
-        hubConnection.On<string, string,string>("ReceiveMessage", (user, avatar, text) =>
+            var chatUrl = Configuration["Services:Chat"] ?? "http://localhost:4099";
+            hubConnection = new HubConnectionBuilder()
+                .WithUrl($"{chatUrl}/agentsChat", opts =>
+                {
+                    opts.AccessTokenProvider = () => authProvider.GetToken();
+                })
+                .WithAutomaticReconnect()
+                .Build();
+
+            hubConnection.On<string, string, string>("ReceiveMessage", (user, avatar, text) =>
+            {
+                Messages.Insert(0, new ChatMessage(user, avatar, text));
+                InvokeAsync(StateHasChanged);
+            });
+
+            hubConnection.On<string>("ReceiveNotification", notification =>
+            {
+                Messages.Insert(0, new ChatMessage(string.Empty, null, notification));
+                InvokeAsync(StateHasChanged);
+            });
+
+            hubConnection.Reconnecting += error =>
+            {
+                statusColor = Color.Warning;
+                statusMessage = "Đang kết nối lại với ChatService...";
+                InvokeAsync(StateHasChanged);
+                return Task.CompletedTask;
+            };
+
+            hubConnection.Reconnected += connectionId =>
+            {
+                statusColor = Color.Success;
+                statusMessage = "Đã kết nối lại thành công với ChatService.";
+                InvokeAsync(StateHasChanged);
+                return Task.CompletedTask;
+            };
+
+            hubConnection.Closed += error =>
+            {
+                statusColor = Color.Danger;
+                statusMessage = "Mất kết nối với ChatService.";
+                InvokeAsync(StateHasChanged);
+                return Task.CompletedTask;
+            };
+
+            await hubConnection.StartAsync();
+            statusColor = Color.Success;
+            statusMessage = "Đã kết nối đến ChatService thành công!";
+        }
+        catch (Exception ex)
         {
-            Messages.Insert(0, new ChatMessage(user,avatar,text));
-            StateHasChanged();
-        });
-
-        hubConnection.On<string>("ReceiveNotification", notification =>
-        {
-            Messages.Insert(0, new ChatMessage(string.Empty,null,notification));
-
-        });
-
-        await hubConnection.StartAsync();
+            statusColor = Color.Danger;
+            statusMessage = $"Không thể kết nối đến ChatService (port 4099). Vui lòng đảm bảo ChatService đang chạy. Chi tiết: {ex.Message}";
+        }
     }
     
     public bool IsConnected =>
         hubConnection?.State == HubConnectionState.Connected;
 
+    private async Task HandleKeyUp(KeyboardEventArgs e)
+    {
+        if (e.Key == "Enter")
+        {
+            await SendMessage();
+        }
+    }
+
     private async Task SendMessage()
     {
-        await hubConnection.SendAsync("SendMessage",Message);
-        Message = string.Empty;
+        if (string.IsNullOrWhiteSpace(Message) || !IsConnected) return;
+
+        try
+        {
+            await hubConnection.SendAsync("SendMessage", Message);
+            Message = string.Empty;
+        }
+        catch (Exception ex)
+        {
+            statusColor = Color.Danger;
+            statusMessage = $"Lỗi gửi tin nhắn: {ex.Message}";
+        }
     }
     
     public async ValueTask DisposeAsync()
