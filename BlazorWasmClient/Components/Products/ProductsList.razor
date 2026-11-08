@@ -4,6 +4,26 @@
 
 @attribute [Authorize]
 
+@if (!string.IsNullOrEmpty(errorMessage))
+{
+    <Alert Color="Color.Danger" Visible="true" Margin="Margin.Is3.OnY">
+        <AlertMessage>@errorMessage</AlertMessage>
+    </Alert>
+}
+
+@if (isLoading)
+{
+    <Alert Color="Color.Info" Visible="true" Margin="Margin.Is3.OnY">
+        <AlertMessage>Đang tải danh sách các gói bảo hiểm...</AlertMessage>
+    </Alert>
+}
+else if (!Products.Any() && string.IsNullOrEmpty(errorMessage))
+{
+    <Alert Color="Color.Warning" Visible="true" Margin="Margin.Is3.OnY">
+        <AlertMessage>Không có gói bảo hiểm nào được tìm thấy.</AlertMessage>
+    </Alert>
+}
+
 <Row>
     @foreach (var product in Products)
     {
@@ -13,10 +33,11 @@
     }
 </Row>
 
-
-
 @code {
     private IEnumerable<ProductDto> Products { get; set; } = new List<ProductDto>{};
+    private bool isLoading { get; set; } = true;
+    private string errorMessage { get; set; }
+
     [Inject]
     private ProductsClient ProductsClient { get; set; }
     [Inject]
@@ -24,18 +45,30 @@
 
     protected override async Task OnInitializedAsync()
     {
-        var productsResult = await ProductsClient.GetAllProducts();
+        isLoading = true;
+        errorMessage = null;
 
-        if (productsResult.IsSuccess)
+        try
         {
-            Products = productsResult.Result;
+            var productsResult = await ProductsClient.GetAllProducts();
+
+            if (productsResult != null && productsResult.IsSuccess && productsResult.Result != null)
+            {
+                Products = productsResult.Result;
+            }
+            else
+            {
+                errorMessage = productsResult?.ErrorMessage ?? "Không thể tải danh sách sản phẩm. Vui lòng bấm Logout và Đăng nhập lại.";
+                await NotificationService.Error(errorMessage, "Thông báo", options => options.IntervalBeforeClose = 4000);
+            }
         }
-        else
+        catch (Exception ex)
         {
-            await NotificationService.Error("Error while loading products. Please try again." ,"Error", options => options.IntervalBeforeClose = 3000);
+            errorMessage = $"Lỗi kết nối: {ex.Message}. Vui lòng thử đăng xuất và đăng nhập lại.";
         }
-        
+        finally
+        {
+            isLoading = false;
+        }
     }
-
-
 }

@@ -1,7 +1,11 @@
+using System;
+using System.Net.Http;
 using System.Net.Http.Headers;
+using System.Threading.Tasks;
 using BlazorWasmClient.Components.Auth;
 using BlazorWasmClient.Shared;
 using Microsoft.AspNetCore.Components.Authorization;
+using Microsoft.Extensions.Configuration;
 using Newtonsoft.Json;
 using PolicySearchService.Api.Queries;
 
@@ -28,23 +32,36 @@ public class PolicySearchClient
 
     public async Task<ApiResponse<FindPolicyResult>> SearchPolicies(string policyNumber, string policyHolder)
     {
-        var token = await customAuthenticationStateProvider.GetToken();
-        httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
-
-        var queryString = string.Empty;
-        if (!string.IsNullOrWhiteSpace(policyNumber))
+        try
         {
-            queryString += policyNumber;
-        }
+            var token = await customAuthenticationStateProvider.GetToken();
+            if (!string.IsNullOrEmpty(token))
+            {
+                httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
+            }
 
-        if (!string.IsNullOrWhiteSpace(policyHolder))
+            var queryString = string.Empty;
+            if (!string.IsNullOrWhiteSpace(policyNumber))
+            {
+                queryString += policyNumber;
+            }
+
+            if (!string.IsNullOrWhiteSpace(policyHolder))
+            {
+                queryString += ((queryString.Length>0 ? And : string.Empty) + policyHolder);
+            }
+            
+            var response = await httpClient.GetAsync($"{baseUrl}/api/PolicySearch?q={queryString}");
+            if (response.IsSuccessStatusCode)
+            {
+                var productsString = await response.Content.ReadAsStringAsync();
+                return ApiResponse<FindPolicyResult>.Success(JsonConvert.DeserializeObject<FindPolicyResult>(productsString));
+            }
+            return ApiResponse<FindPolicyResult>.Error($"Lỗi tìm kiếm: {response.StatusCode}");
+        }
+        catch (Exception ex)
         {
-            queryString += ((queryString.Length>0 ? And : string.Empty) + policyHolder);
+            return ApiResponse<FindPolicyResult>.Error(ex.Message);
         }
-        
-        var productsString = await httpClient
-            .GetStringAsync($"{baseUrl}/api/PolicySearch?q={queryString}");
-
-        return ApiResponse<FindPolicyResult>.Success(JsonConvert.DeserializeObject<FindPolicyResult>(productsString));
     }
 }

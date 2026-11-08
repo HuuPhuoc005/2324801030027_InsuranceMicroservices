@@ -65,9 +65,12 @@ public class CustomAuthenticationStateProvider : AuthenticationStateProvider
         var result = string.Empty;
 
         var userSession = await sessionStorageService.ReadEncryptedItem<UserSession>("UserSession");
-        if (userSession != null && DateTime.Now < userSession.ExpiryTimestamp)
+        if (userSession != null)
         {
-            return userSession.Token;
+            if (userSession.ExpiryTimestamp == default || DateTime.Now < userSession.ExpiryTimestamp)
+            {
+                return userSession.Token;
+            }
         }
         
         return result;
