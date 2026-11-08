@@ -125,6 +125,7 @@ try {
     Write-Host "API Gateway:       http://localhost:8099"
     Write-Host "Eureka Dashboard:  http://localhost:8761"
     Write-Host "=======================================================`n"
+    Start-Process "http://localhost:5081"
 } catch {
     Write-Error $_
     foreach ($process in $started) {
